@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def add
     p '--------------'
-    p params[:balace]
+    @me = current_user
   end
 
   def transactions
