@@ -1,5 +1,6 @@
 class PokemonsController < ApplicationController
   before_action :set_pokemon, only: [:show, :checkout, :buy, :sell]
+  before_action :authenticate_user!, only: [:checkout, :buy, :sell]
 
   def index
     @pokemons = Pokemon.all
