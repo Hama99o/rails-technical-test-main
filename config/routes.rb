@@ -6,8 +6,12 @@ Rails.application.routes.draw do
   resources :pokemons, only: [:index, :show, :create] do
     member do
       get 'checkout', as: 'checkout'
-      get 'buy', as: 'buy'
-      get 'sell', as: 'sell'
+      post 'buy', as: 'buy'
+      post 'sell', as: 'sell'
     end
   end
+
+  get "/me/add", to: 'users#add', as: :add_money_screen
+  put "/me/add", to: 'users#add', as: :add_money
+  get "/me/transactions", to: 'users#transactions', as: :user_transactions
 end
