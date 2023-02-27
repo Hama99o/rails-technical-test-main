@@ -2,9 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :pokemons
   root to: 'pokemons#index'
-  get "/pokemon/:id/checkout", to: 'pokemons#checkout', as: :checkout_pokemon
-  get "/pokemon/:id/buy", to: 'pokemons#buy', as: :buy_pokemon
-  get "/pokemon/:id/sell", to: 'pokemons#sell', as: :sell_pokemon
+  resources :pokemons, only: [:index, :show, :create] do
+    member do
+      get 'checkout', as: 'checkout'
+      get 'buy', as: 'buy'
+      get 'sell', as: 'sell'
+    end
+  end
 end
