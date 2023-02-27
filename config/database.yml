@@ -83,3 +83,4 @@ production:
   database: rails-technical-test-main_production
   username: rails-technical-test-main
   password: <%= ENV['RAILS-TECHNICAL-TEST-MAIN_DATABASE_PASSWORD'] %>
+
