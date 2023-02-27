@@ -20,6 +20,8 @@ class PokemonsController < ApplicationController
   end
 
   def buy
+    p '----------------------------'
+    p current_user.balance
   end
 
   def sell
