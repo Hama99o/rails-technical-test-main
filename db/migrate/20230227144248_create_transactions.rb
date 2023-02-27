@@ -1,8 +1,13 @@
 class CreateTransactions < ActiveRecord::Migration[5.2]
   def change
     create_table :transactions do |t|
-      t.string :action
+      t.integer :user_id
+      t.integer :pokemon_id
+      t.integer :action, default: 0 # default value is the first value in the enum
       t.timestamps
     end
+
+    add_index :transactions, :user_id
+    add_index :transactions, :pokemon_id
   end
 end
