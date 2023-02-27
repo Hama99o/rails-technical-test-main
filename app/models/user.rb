@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   has_many :pokemons
   has_many :transactions
+
+  def has_pokemon?(pokemon)
+    pokemons.exists?(pokemon.id)
+  end
 end

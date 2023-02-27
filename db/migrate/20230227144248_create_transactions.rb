@@ -4,6 +4,7 @@ class CreateTransactions < ActiveRecord::Migration[5.2]
       t.integer :user_id
       t.integer :pokemon_id
       t.integer :action, default: 0 # default value is the first value in the enum
+      t.integer :amount, default: 0.0
       t.timestamps
     end
 

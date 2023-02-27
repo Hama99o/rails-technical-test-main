@@ -1,0 +1,17 @@
+<div class="container pokimon mt-7 mt-sm-8 mb-5">
+
+  <%= link_to "Back to Profile", me_path(@me) %>
+
+  <h1>Add Money to Your Wallet</h1>
+  <%= @me.email %>
+  <%= form_with(model: @me, url: add_money_path(@me), local: true) do |form| %>
+    <div class="form-group">
+      <%= form.label :balance %>
+      <%= form.text_field :balance, class: "form-control" %>
+    </div>
+
+    <div class="form-group d-flex justify-content-center mt-5">
+      <%= form.submit "Deposit", class: "btn btn-primary px-4" %>
+    </div>
+  <% end %>
+</div>

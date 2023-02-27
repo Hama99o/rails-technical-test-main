@@ -6,6 +6,7 @@ class CreatePokemons < ActiveRecord::Migration[5.2]
       t.integer :weight
       t.string :image_path
       t.integer :price, default: 0.0
+      t.integer :last_sell_price, default: 0.0
       t.references :user, foreign_key: true
     end
   end

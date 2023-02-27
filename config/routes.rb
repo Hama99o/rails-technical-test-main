@@ -7,12 +7,14 @@ Rails.application.routes.draw do
     member do
       get 'checkout', as: 'checkout'
       post 'buy', as: 'buy'
-      post 'sell', as: 'sell'
+      patch 'sell', as: 'sell'
     end
   end
 
-  get "/me/add", to: 'users#add', as: :add_money_screen
+  get "/me/add_money", to: 'users#add_money', as: :add_money_screen
   get "/me", to: 'users#me', as: :me
-  put "/me/add", to: 'users#add', as: :add_money
+  patch "/me/add", to: 'users#add', as: :add_money
   get "/me/transactions", to: 'users#transactions', as: :user_transactions
+  get "/me/user_pokemons", to: 'users#user_pokemons', as: :user_pokemons
+
 end

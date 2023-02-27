@@ -1,3 +1,14 @@
+$ git clone git@github.com:Hama99o/rails-technical-test-main.git
+
+$ cd rails-technical-test
+$ bundle install
+
+
+$ rails db:create
+$ rails db:migrate
+$ rails db:seed
+$ rails server
+
 # PokéCoin
 The goal of this test is to create an exchange platform to trade pokémon as NFTs.
 
@@ -50,7 +61,7 @@ We love creativity and technical challenges.
 Here's some examples:
 - Write a documentation of the project
 - Unit test
-- Authentication solution 
+- Authentication solution
 - Docker
 - Etc...
 

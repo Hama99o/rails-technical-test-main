@@ -1,4 +1,9 @@
 <div class="container pokimon mt-7 mt-sm-8 mb-5">
+  <% if flash[:error] %>
+    <div class="alert alert-danger" role="alert">
+      <%= flash[:error] %>
+    </div>
+  <% end %>
   pokimon name: <%= @pokemon.name%><br/>
   pokimon price: <%= @pokemon.price%>
 </div>

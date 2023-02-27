@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+# create users
+users = FactoryBot.create_list(:user, 10)
+
+# create 30 pokemons with random prices
+30.times do
+  FactoryBot.create(:pokemon, price: rand(1..1000), user: users.sample)
+end

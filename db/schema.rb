@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2023_02_27_152453) do
     t.integer "weight"
     t.string "image_path"
     t.integer "price", default: 0
+    t.integer "last_sell_price", default: 0
     t.bigint "user_id"
     t.index ["user_id"], name: "index_pokemons_on_user_id"
   end
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(version: 2023_02_27_152453) do
     t.integer "user_id"
     t.integer "pokemon_id"
     t.integer "action", default: 0
+    t.integer "amount", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pokemon_id"], name: "index_transactions_on_pokemon_id"
@@ -36,6 +38,7 @@ ActiveRecord::Schema.define(version: 2023_02_27_152453) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
