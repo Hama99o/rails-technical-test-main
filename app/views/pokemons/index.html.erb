@@ -22,6 +22,7 @@
         <tr>
           <th scope="col">name</th>
           <th scope="col">price</th>
+          <th scope="col"></th>
         </tr>
       </thead>
 
@@ -36,6 +37,11 @@
             <td class="p-0">
               <%= link_to pokemon, class: "d-block p-3 no-deco" do %>
                 <%= pokemon.price %>
+              <% end %>
+            </td>
+            <td class="p-0">
+              <%= link_to checkout_pokemon_path(pokemon.id), class: "d-block p-3 no-deco" do %>
+                Buy <%= pokemon.name %>
               <% end %>
             </td>
           </tr>

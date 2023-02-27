@@ -4,4 +4,7 @@ Rails.application.routes.draw do
 
   resources :pokemons
   root to: 'pokemons#index'
+  get "/pokemon/:id/checkout", to: 'pokemons#checkout', as: :checkout_pokemon
+  get "/pokemon/:id/buy", to: 'pokemons#buy', as: :buy_pokemon
+  get "/pokemon/:id/sell", to: 'pokemons#sell', as: :sell_pokemon
 end
