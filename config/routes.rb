@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   get "/me/add", to: 'users#add', as: :add_money_screen
+  get "/me", to: 'users#me', as: :me
   put "/me/add", to: 'users#add', as: :add_money
   get "/me/transactions", to: 'users#transactions', as: :user_transactions
 end

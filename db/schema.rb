@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2023_02_27_152453) do
     t.integer "height"
     t.integer "weight"
     t.string "image_path"
-    t.decimal "price", default: "0.0"
+    t.integer "price", default: 0
     t.bigint "user_id"
     t.index ["user_id"], name: "index_pokemons_on_user_id"
   end
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2023_02_27_152453) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.decimal "balance", default: "0.0"
+    t.integer "balance", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

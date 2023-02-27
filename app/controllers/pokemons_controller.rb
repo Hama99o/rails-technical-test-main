@@ -20,8 +20,15 @@ class PokemonsController < ApplicationController
   end
 
   def buy
-    p '----------------------------'
-    p current_user.balance
+    price = @pokemon.price
+    if current_user.balance >= price
+      Transaction.create(action: :buy, user: current_user, pokemon: @pokemon)
+      current_user.update(balance: current_user.balance - price)
+    elseif current_user.pokemon.id == @pokemon.id
+      flash[:error] = "you already have that pokemon"
+    else
+      flash[:error] = "you dont have enough money"
+    end
   end
 
   def sell
