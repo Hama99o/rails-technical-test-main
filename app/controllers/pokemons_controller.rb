@@ -14,6 +14,10 @@ class PokemonsController < ApplicationController
     @pokemon = Pokemon.find(params[:id])
   end
 
+
+  def landing_page
+  end
+
   def buy
   end
 
