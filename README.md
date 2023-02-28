@@ -1,6 +1,9 @@
 ## clone it
 
+```sh
 git clone git@github.com:Hama99o/rails-technical-test-main.git
+```
+
 ## Dependencies
 
 * ruby 2.5.9
