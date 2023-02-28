@@ -1,0 +1,62 @@
+<div class="container pokimons">
+  <h3 class="my-3"> Pokemons </h3>
+  <div class="my-2">
+    <form class="d-flex" id="form_search">
+    <input  name="search"
+            value="<%= params[:search] %>"
+            placeholder="Rechercher une pokimon..."
+            class="form-control mr-2 search"
+            id="search"/>
+
+    <input  type="submit"
+            value="🔍"
+            style="height:40px;"
+            class="btn btn-light search_button"
+            id="search_button"
+            type="button"/>
+    </form>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table mt-3 table-striped table-hover  ">
+      <thead class="thead-light ">
+        <tr>
+          <th scope="col">name</th>
+          <th scope="col">price</th>
+          <th scope="col">old price</th>
+          <th scope="col">owner name</th>
+        </tr>
+      </thead>
+
+      <tbody id="index_pokemon">
+        <% pokemons.each do |pokemon| %>
+          <tr class="pokemon_row" >
+            <td class="p-0">
+              <%= link_to pokemon, class: "d-block p-3 no-deco" do %>
+                <%= pokemon.name %>
+              <% end %>
+            </td>
+
+            <td class="p-0">
+              <%= link_to pokemon, class: "d-block p-3 no-deco" do %>
+                <%= pokemon.price %>
+              <% end %>
+            </td>
+
+            <td class="p-0">
+              <%= link_to pokemon, class: "d-block p-3 no-deco" do %>
+                <%= pokemon.last_sell_price %>
+              <% end %>
+            </td>
+
+            <td class="p-0">
+              <%= link_to pokemon, class: "d-block p-3 no-deco" do %>
+                <%= pokemon.user.full_name %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

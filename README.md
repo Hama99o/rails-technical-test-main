@@ -1,3 +1,33 @@
+## clone it
+
+```sh
+git clone git@github.com:Hama99o/rails-technical-test-main.git
+```
+
+## Dependencies
+
+* ruby 2.5.9
+* postgresql
+
+
+## Install
+
+```sh
+bundle install
+```
+Then :
+
+```sh
+rake db:create
+rails db:migrate
+rails db:seed
+```
+
+Run trends on port 3000 :
+```ruby
+rails s
+```
+
 # PokéCoin
 The goal of this test is to create an exchange platform to trade pokémon as NFTs.
 
@@ -50,7 +80,7 @@ We love creativity and technical challenges.
 Here's some examples:
 - Write a documentation of the project
 - Unit test
-- Authentication solution 
+- Authentication solution
 - Docker
 - Etc...
 

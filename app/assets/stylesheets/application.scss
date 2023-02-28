@@ -1,1 +1,41 @@
 @import "bootstrap";
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+header {
+  background-color: #f0f0f0; /* set the background color to light gray */
+  font-size: 24px; /* increase the font size to make the header bigger */
+  padding: 10px; /* add some padding to make the header more visible */
+}
+
+
+header a:hover {
+  color: grey; /* change color on hover */
+}
+
+header a.no-underline {
+  text-decoration: none;
+}
+
+header a:hover {
+  color: grey; /* change color on hover */
+}
+
+header a {
+  color: #333; /* dark grey */
+}
+
+body a {
+  color: #166d9c; /* blue */
+}
+
+body {
+  background-color: #ffb6c1; /* set the background color to pink */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #4169e1; /* set the heading color to blue */
+}

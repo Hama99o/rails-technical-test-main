@@ -1,9 +1,0 @@
-<div class="container pokimon mt-7 mt-sm-8 mb-5">
-  <%= render 'layouts/model_errors', model_instance: @pokemon %>
-  pokimon name: <%= @pokemon.name%><br/>
-  pokimon price: <%= @pokemon.price%>
-  <br/>
-  <%= link_to buy_pokemon_path, method: :post, data: { confirm: 'Are you sure?' }, class: "btn btn-primary " do %>
-    buy
-  <% end %>
-</div>

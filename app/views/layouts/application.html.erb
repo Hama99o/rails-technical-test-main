@@ -14,15 +14,19 @@
   <body>
     <header>
       <!-- ... -->
-      <%= link_to 'Pokemons', pokemons_path %>
-      <% if user_signed_in? %>
-        <%= link_to 'profile', me_path %>
-        <%= link_to 'Transactions', user_transactions_path %>
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to 'Login', new_user_session_path %>
-      <% end %>
+      <div class="nav-links header">
+        <%= link_to 'Pokemons', pokemons_path, class: 'no-underline' %>
+        <% if user_signed_in? %>
+          <%= link_to 'My Pokemons', user_pokemons_path, class: 'no-underline' %>
+          <%= link_to 'Profile', user_path, class: 'no-underline' %>
+          <%= link_to 'Transactions', user_transactions_path, class: 'no-underline' %>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'no-underline' %>
+        <% else %>
+          <%= link_to 'Login', new_user_session_path, class: 'no-underline' %>
+        <% end %>
+      </div>
     </header>
+
     <%= yield %>
   </body>
 </html>

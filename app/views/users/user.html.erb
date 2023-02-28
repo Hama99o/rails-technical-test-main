@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <h1><%= @user.last_name %>'s Profile</h1>
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <h2>Account Information</h2>
+      <p>Name: <%= @user.first_name %></p>
+      <p>Email: <%= @user.email %></p>
+      <p>Balance: <%= number_to_currency(@user.balance) %></p>
+      <%= link_to add_money_screen_path, method: :get, class: "btn btn-primary mt-3" do %>
+        Add Money
+      <% end %>
+
+      <%= link_to edit_user_registration_path, method: :get, class: "btn btn-primary mt-3" do %>
+        Edit Info
+      <% end %>
+    </div>
+    <div class="col-md-6">
+      <h2>Pokemon Information</h2>
+      <p>Number of Pokemons: <%= @pokemon_count %></p>
+      <p>Balance: <%= number_to_currency(current_user.balance) %></p>
+      <p>Total Pokemon Price: <%= number_to_currency(@total_pokemon_price) %></p>
+      <p>Net Worth: <%= number_to_currency(@total_balance) %></p>
+    </div>
+  </div>
+</div>

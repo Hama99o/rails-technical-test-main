@@ -5,14 +5,15 @@ Rails.application.routes.draw do
   root to: 'pokemons#landing_page'
   resources :pokemons, only: [:index, :show, :create] do
     member do
-      get 'checkout', as: 'checkout'
       post 'buy', as: 'buy'
-      post 'sell', as: 'sell'
+      patch 'sell', as: 'sell'
     end
   end
 
-  get "/me/add", to: 'users#add', as: :add_money_screen
-  get "/me", to: 'users#me', as: :me
-  put "/me/add", to: 'users#add', as: :add_money
-  get "/me/transactions", to: 'users#transactions', as: :user_transactions
+  get "/user/add_money", to: 'users#add_money', as: :add_money_screen
+  get "/user", to: 'users#user', as: :user
+  patch "/user/add", to: 'users#add', as: :add_money
+  get "/user/transactions", to: 'users#transactions', as: :user_transactions
+  get "/user/user_pokemons", to: 'users#user_pokemons', as: :user_pokemons
+
 end

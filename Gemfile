@@ -36,6 +36,7 @@ gem 'bootstrap', '~> 4.3.1'
 # gem 'capistrano-rails', group: :development
 
 gem "devise"
+gem "capybara"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
