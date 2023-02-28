@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "Add money to wallet", type: :feature do
   let(:user) { FactoryBot.create(:user) }
 
-  scenario "User adds money to their wallet" do
+  it "User adds money to their wallet" do
     sign_in user
     visit add_money_screen_path
 
