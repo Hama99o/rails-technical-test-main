@@ -1,13 +1,29 @@
-$ git clone git@github.com:Hama99o/rails-technical-test-main.git
+## clone it
 
-$ cd rails-technical-test
-$ bundle install
+git clone git@github.com:Hama99o/rails-technical-test-main.git
+## Dependencies
+
+* ruby 2.5.9
+* postgresql
 
 
-$ rails db:create
-$ rails db:migrate
-$ rails db:seed
-$ rails server
+## Install
+
+```sh
+bundle install
+```
+Then :
+
+```sh
+rake db:create
+rails db:migrate
+rails db:seed
+```
+
+Run trends on port 3000 :
+```ruby
+rails s
+```
 
 # PokéCoin
 The goal of this test is to create an exchange platform to trade pokémon as NFTs.
