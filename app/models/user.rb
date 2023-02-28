@@ -10,4 +10,8 @@ class User < ApplicationRecord
   def has_pokemon?(pokemon)
     pokemons.exists?(pokemon.id)
   end
+
+  def net_worth
+    balance + pokemons.sum(:price)
+  end
 end
