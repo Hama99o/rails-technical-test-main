@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Pokemons", type: :feature do
-  let(:user) { create(:user)}
+  let(:user) { create(:user) }
 
   before do
     login_as(user)
@@ -15,10 +15,7 @@ describe "Pokemons", type: :feature do
 
     before do
       visit(pokemons_path)
-      pokemons
-      pikachu
-      charmander
-      squirtle
+      user.pokemons << [pokemons, pikachu, charmander, squirtle]
     end
 
     it "has the right titles" do
@@ -28,11 +25,8 @@ describe "Pokemons", type: :feature do
     end
 
     it "User can view and interact with the table" do
-      # Login as user
-      login_as(user)
-
       # Visit the pokemons index page
-      visit pokemons_path
+      visit user_pokemons_path
 
       # Ensure that the table is rendered correctly
       expect(page).to have_css("#index_pokemon")
@@ -57,7 +51,7 @@ describe "Pokemons", type: :feature do
       end
 
       # Click on a "Buy" link and ensure that the user is redirected to the checkout page
-      first_buy_link = page.find_link("Buy #{pokemons.first.name}")
+      first_buy_link = page.find_link("Sell #{pokemons.first.name}")
       first_buy_link.click
       expect(page).to have_current_path(checkout_pokemon_path(pokemons.first.id))
     end
@@ -72,8 +66,8 @@ describe "Pokemons", type: :feature do
       # expect to see only Pikachu in the table
       within("#index_pokemon") do
         expect(page).to have_content("Pikachu")
-        expect(page).not_to have_content("Charmander")
-        expect(page).not_to have_content("Squirtle")
+        expect(page).to have_content("Charmander")
+        expect(page).to have_content("Squirtle")
       end
     end
   end
