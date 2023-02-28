@@ -1,9 +1,7 @@
 
 require 'rails_helper'
 
-
 describe PokemonsController, type: :controller do
-  include Devise::Test::ControllerHelpers
 
   let(:user) { create(:user) }
   let(:pokemon) { create(:pokemon, user: user) }
