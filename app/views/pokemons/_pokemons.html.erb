@@ -25,7 +25,6 @@
           <th scope="col">price</th>
           <th scope="col">old price</th>
           <th scope="col">owner name</th>
-          <th scope="col"></th>
         </tr>
       </thead>
 
@@ -53,19 +52,6 @@
             <td class="p-0">
               <%= link_to pokemon, class: "d-block p-3 no-deco" do %>
                 <%= pokemon.user.first_name + ' ' + pokemon.user.last_name %>
-              <% end %>
-            </td>
-
-
-            <td class="p-0">
-              <% if current_user && current_user.has_pokemon?(pokemon) %>
-                  <%= link_to checkout_pokemon_path(pokemon.id), class: "d-block p-3 no-deco" do %>
-                    Sell <%= pokemon.name %>
-                  <% end %>
-                <% else %>
-                  <%= link_to checkout_pokemon_path(pokemon.id), class: "d-block p-3 no-deco" do %>
-                    Buy <%= pokemon.name %>
-                  <% end %>
               <% end %>
             </td>
           </tr>

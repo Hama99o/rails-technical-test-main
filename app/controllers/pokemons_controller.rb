@@ -1,8 +1,8 @@
 class PokemonsController < ApplicationController
-  before_action :set_pokemon, only: [:show, :checkout, :buy, :sell]
+  before_action :set_pokemon, only: [:show, :buy, :sell]
   before_action :random_buyer, only: [:sell]
   before_action :set_current_user
-  before_action :authenticate_user!, only: [:checkout, :buy, :sell]
+  before_action :authenticate_user!, only: [:buy, :sell]
 
   def index
     @pokemons = Pokemon.all
@@ -13,16 +13,13 @@ class PokemonsController < ApplicationController
   def show
   end
 
-  def checkout
-  end
-
   def landing_page
   end
 
   def buy
     if current_user.balance < @pokemon.price
       flash[:error] = "You don't have enough balance to buy #{@pokemon.name}."
-      redirect_to checkout_pokemon_path(@pokemon.id)
+      redirect_to pokemon_path(@pokemon.id)
     else
       current_user.balance -= @pokemon.price
       current_user.save!
@@ -42,7 +39,7 @@ class PokemonsController < ApplicationController
         action: :buy,
         amount: @pokemon.price
       )
-      redirect_to checkout_pokemon_path(@pokemon.id)
+      redirect_to user_pokemons_path
     end
   end
 
@@ -51,7 +48,7 @@ class PokemonsController < ApplicationController
 
     unless random_buyer
       flash[:error] = "No buyers found with enough balance to buy this pokemon"
-      redirect_to checkout_pokemon_path(@pokemon.id) and return
+      redirect_to user_pokemons_path and return
     end
 
     if current_user.has_pokemon?(@pokemon)
@@ -64,7 +61,7 @@ class PokemonsController < ApplicationController
       else
         # Transaction could not be saved
         flash[:error] = "Could not register transaction"
-        redirect_to checkout_pokemon_path(@pokemon.id)
+        redirect_to user_pokemons_path
       end
     else
       # Transaction could not be saved

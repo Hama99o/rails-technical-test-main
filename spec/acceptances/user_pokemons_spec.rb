@@ -40,24 +40,10 @@ describe "Pokemons", type: :feature do
         expect(page).to have_content(pokemon.user.first_name)
         expect(page).to have_content(pokemon.user.last_name)
       end
-
-      # Ensure that the "Buy" or "Sell" link is displayed correctly based on whether the current user owns the pokemon
-      pokemons.each do |pokemon|
-        if user.has_pokemon?(pokemon)
-          expect(page).to have_link("Sell #{pokemon.name}", href: checkout_pokemon_path(pokemon.id))
-        else
-          expect(page).to have_link("Buy #{pokemon.name}", href: checkout_pokemon_path(pokemon.id))
-        end
-      end
-
-      # Click on a "Buy" link and ensure that the user is redirected to the checkout page
-      first_buy_link = page.find_link("Sell #{pokemons.first.name}")
-      first_buy_link.click
-      expect(page).to have_current_path(checkout_pokemon_path(pokemons.first.id))
     end
 
     it "searches for a pokemon by name" do
-      visit pokemons_path
+      visit user_pokemons_path
 
       # fill in the search input with "Pikachu" and submit the form
       fill_in "search", with: "Pikachu"

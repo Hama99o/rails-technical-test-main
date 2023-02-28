@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   root to: 'pokemons#landing_page'
   resources :pokemons, only: [:index, :show, :create] do
     member do
-      get 'checkout', as: 'checkout'
       post 'buy', as: 'buy'
       patch 'sell', as: 'sell'
     end
