@@ -51,7 +51,7 @@
 
             <td class="p-0">
               <%= link_to pokemon, class: "d-block p-3 no-deco" do %>
-                <%= pokemon.user.first_name + ' ' + pokemon.user.last_name %>
+                <%= pokemon.user.full_name %>
               <% end %>
             </td>
           </tr>

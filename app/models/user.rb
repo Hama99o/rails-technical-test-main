@@ -14,4 +14,8 @@ class User < ApplicationRecord
   def net_worth
     balance + pokemons.sum(:price)
   end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

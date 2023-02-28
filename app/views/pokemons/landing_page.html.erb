@@ -1,7 +1,16 @@
 <div class="container">
-  <header>
+  <h2>
     <h1>Welcome to the Pokemons app!</h1>
-    <p>Start exploring our Pokemons:</p>
-  </header>
+    <p>Discover the world of Pokemons and join our community of <%= User.count %> users:</p>
+  </h2>
+  <section class="user-info">
+    <% if User.count > 0 %>
+      <div class="user">
+        <h3>Random User: <%= User.offset(rand(User.count)).first.full_name %></h3>
+        <p>Email: <%= User.offset(rand(User.count)).first.email %></p>
+        <p>Pokemons: <%= User.offset(rand(User.count)).first.pokemons.count %></p>
+      </div>
+    <% end %>
+  </section>
   <%= link_to 'Start', pokemons_path, class: 'start-button' %>
 </div>
