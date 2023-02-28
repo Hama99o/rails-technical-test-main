@@ -74,7 +74,7 @@ class PokemonsController < ApplicationController
 
   def random_buyer
     price = add_params[:price].to_f
-    User.where.not(id: current_user.id).where("balance >= ?", price).sample
+    User.where.not(id: current_user&.id).where("balance >= ?", price).sample
   end
 
   def set_pokemon
