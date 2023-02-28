@@ -58,8 +58,8 @@ class PokemonsController < ApplicationController
       transaction = Transaction.new(action: :sell, user: current_user, pokemon: @pokemon)
       if transaction.save
         # Transaction saved successfully
-        @pokemon.update(user: random_buyer, price: add_params[:price].to_i, last_sell_price: price)
-        current_user.update(balance: current_user.balance + add_params[:price].to_i)
+        @pokemon.update(user: random_buyer, price: add_params[:price].to_f, last_sell_price: price)
+        current_user.update(balance: current_user.balance + add_params[:price].to_f)
         redirect_to user_pokemons_path
       else
         # Transaction could not be saved
@@ -76,7 +76,8 @@ class PokemonsController < ApplicationController
   private
 
   def random_buyer
-    User.where.not(id: current_user.id).where("balance >= ?", add_params[:price]).sample
+    price = add_params[:price].to_f
+    User.where.not(id: current_user.id).where("balance >= ?", price).sample
   end
 
   def set_pokemon

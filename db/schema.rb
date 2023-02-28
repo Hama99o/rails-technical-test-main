@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 2023_02_27_152453) do
     t.integer "height"
     t.integer "weight"
     t.string "image_path"
-    t.integer "price", default: 0
-    t.integer "last_sell_price", default: 0
+    t.decimal "price", precision: 10, scale: 2, default: "0.0"
+    t.decimal "last_sell_price", precision: 10, scale: 2, default: "0.0"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_pokemons_on_user_id"
   end
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2023_02_27_152453) do
     t.integer "user_id"
     t.integer "pokemon_id"
     t.integer "action", default: 0
-    t.integer "amount", default: 0
+    t.decimal "amount", precision: 10, scale: 2, default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pokemon_id"], name: "index_transactions_on_pokemon_id"
@@ -38,7 +38,8 @@ ActiveRecord::Schema.define(version: 2023_02_27_152453) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "first_name"
+    t.string "last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
@@ -46,7 +47,7 @@ ActiveRecord::Schema.define(version: 2023_02_27_152453) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "balance", default: 0
+    t.decimal "balance", precision: 10, scale: 2, default: "0.0"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -1,5 +1,5 @@
 <div class="container pokimon mt-7 mt-sm-8 mb-5">
-  <%= link_to "Back to Profile", me_path(@me) %><br/>
+  <%= link_to "Back to Profile", user_path(@me) %><br/>
   <% if flash[:error] %>
     <div class="alert alert-danger" role="alert">
       <%= flash[:error] %>

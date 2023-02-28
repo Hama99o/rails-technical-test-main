@@ -37,7 +37,7 @@ class AddDeviseToUsers < ActiveRecord::Migration[5.2]
       # t.timestamps null: false
     end
 
-    add_column :users, :balance, :integer, default: 0.0
+    add_column :users, :balance, :decimal, precision: 10, scale: 2, default: 0
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
     # add_index :users, :confirmation_token,   unique: true

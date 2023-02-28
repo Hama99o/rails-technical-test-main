@@ -18,7 +18,7 @@
         <%= link_to 'Pokemons', pokemons_path, class: 'no-underline' %>
         <% if user_signed_in? %>
           <%= link_to 'My Pokemons', user_pokemons_path, class: 'no-underline' %>
-          <%= link_to 'Profile', me_path, class: 'no-underline' %>
+          <%= link_to 'Profile', user_path, class: 'no-underline' %>
           <%= link_to 'Transactions', user_transactions_path, class: 'no-underline' %>
           <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'no-underline' %>
         <% else %>

@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
-  before_action :set_me
+  before_action :set_user
   before_action :authenticate_user!
 
-  def me
+  def user
+    @total_pokemon_price = current_user.pokemons.sum(:price)
+    @total_balance = current_user.balance + @total_pokemon_price
+    @pokemon_count = current_user.pokemons.count
   end
 
   def add_money
@@ -15,16 +18,16 @@ class UsersController < ApplicationController
 
   def add
     balance = add_params[:balance]
-    @me = @me.update(balance: balance)
-    redirect_to me_path
+    @user = @user.update(balance: balance)
+    redirect_to user_path
   end
 
   def transactions
-    @transactions = @me.transactions
+    @transactions = @user.transactions
   end
 
-  def set_me
-    @me = current_user
+  def set_user
+    @user = current_user
   end
 
   def add_params
