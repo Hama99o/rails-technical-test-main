@@ -7,8 +7,7 @@ git clone git@github.com:Hama99o/rails-technical-test-main.git
 ## Dependencies
 
 * ruby 2.5.9
-* postgresql
-
+* postgresql 12.14
 
 ## Install
 
